@@ -1,0 +1,32 @@
+<module xmlns='urn:jboss:module:1.1' name='com.ail.gwtui'>
+  <resources>
+    <resource-root path='gwtui.jar'/>
+    <resource-root path='jsp-api-2.0-20040521.jar'/>
+    <resource-root path='logkit-1.0.1.jar'/>
+    <resource-root path='jsr305-1.3.9.jar'/>
+    <resource-root path='myfaces-api-2.1.9.jar'/>
+    <resource-root path='util-bridges-6.2.0-ga1.jar'/>
+    <resource-root path='portal-service-6.2.0-ga1.jar'/>
+    <resource-root path='gwt-dev-2.6.1.jar'/>
+    <resource-root path='commons-el-1.0.jar'/>
+    <resource-root path='myfaces-builder-annotations-1.0.9.jar'/>
+    <resource-root path='log4j-1.2.12.jar'/>
+    <resource-root path='guava-gwt-18.0.jar'/>
+    <resource-root path='avalon-framework-4.1.3.jar'/>
+    <resource-root path='util-java-6.2.0-ga1.jar'/>
+    <resource-root path='guava-18.0.jar'/>
+    <resource-root path='jakarta-standard-taglib-1.1.2.jar'/>
+    <resource-root path='gwt-user-2.6.1.jar'/>
+    <resource-root path='json-20090211.jar'/>
+    <resource-root path='gwt-servlet-2.6.1.jar'/>
+    <resource-root path='commons-logging-1.1.1.jar'/>
+    <resource-root path='util-taglib-6.2.0-ga1.jar'/>
+  </resources>
+  <dependencies>
+    <module name='com.liferay.portal'/>
+    <module name='com.ail.core'/>
+    <module name='com.ail.commercial'/>
+    <module name='com.ail.insurance'/>
+    <module name='javax.servlet.api'/>
+  </dependencies>
+</module>

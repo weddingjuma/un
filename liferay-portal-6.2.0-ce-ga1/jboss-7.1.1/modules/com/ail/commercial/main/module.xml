@@ -1,0 +1,19 @@
+<module xmlns='urn:jboss:module:1.1' name='com.ail.commercial'>
+  <resources>
+    <resource-root path='commercial.jar'/>
+    <resource-root path='gson-2.2.2.jar'/>
+    <resource-root path='sagepay-util-nodep-1.4.0.1.jar'/>
+    <resource-root path='rest-api-sdk-0.7.1.jar'/>
+    <resource-root path='sagepay-api-1.2.2.0.jar'/>
+    <resource-root path='paypal-core-1.4.4.jar'/>
+    <resource-root path='commons-codec-1.6.jar'/>
+  </resources>
+  <dependencies>
+    <module name='com.ail.core'/>
+    <module name='javax.api'/>
+    <module name='com.liferay.portal'/>
+    <module name='javax.persistence.api'/>
+    <module name='org.hibernate'/>
+    <module name='org.jboss.as.web'/>
+  </dependencies>
+</module>

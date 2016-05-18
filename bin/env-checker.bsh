@@ -1,0 +1,70 @@
+import java.net.*;
+import java.util.*;
+import java.sql.*;
+
+JBOSS_PORTS = new int[]{8080,3528,4447,9990,9999,8443,5445,5455};
+
+main() {
+    if (portsAreAvailable() && canConnectToMySQL(bsh.args[0], bsh.args[1]) && mysqlExeIsOnThePATH()) {
+        System.exit(0);
+    }
+    else {
+        System.exit(1);
+    }
+}
+
+boolean mysqlExeIsOnThePATH() {
+    try {
+        Runtime rt = Runtime.getRuntime();
+        Process proc = rt.exec("mysql --version");
+        proc.waitFor();
+    }
+    catch(exception) {
+        print("MySQL cannot be executed. Please make sure that the [MySQL HOME]/bin folder is on the PATH.");
+        return false;
+    }
+    return true;
+}
+
+boolean portsAreAvailable() {
+	inUse = "";
+	
+	for(i=0 ; i<JBOSS_PORTS.length ; i++) {
+		try {
+			new ServerSocket(JBOSS_PORTS[i],1,InetAddress.getByName("localhost"));
+		}
+		catch(BindException e) {
+			inUse=inUse+", "+JBOSS_PORTS[i];
+		}
+	}
+	
+	if (inUse.length() > 0) {
+		print("The following port(s) are in use by other applications. Please quit them and then restart OpenUnderwriter.");
+		print("\t"+inUse.substring(2));
+        return false;
+	}
+
+    return true;
+}
+
+boolean canConnectToMySQL(String user, String password) {
+	connectionOk=false;
+
+	try {
+		Class.forName("com.mysql.jdbc.Driver");
+		connection=DriverManager.getConnection("jdbc:mysql://localhost/mysql?user="+user+"&password="+password);
+		connectionOk=connection.isValid(0);
+		connection.close();
+	}
+	catch(Throwable t) {
+		// Nothing to do
+	}
+	
+	if (!connectionOk) {
+		print("MySQL does not appear to be running. Please check you MySQL installation.");
+	}
+
+	return connectionOk;
+}
+
+main();
